@@ -84,6 +84,15 @@ document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el 
   observer.observe(el);
 });
 
+/* ==================== TOOLTIP AO PASSAR O MOUSE ==================== */
+document.querySelectorAll('[data-tooltip]').forEach(el => {
+  const tip = document.createElement('span');
+  tip.className = 'tooltip-text';
+  tip.textContent = el.dataset.tooltip;
+  el.style.position = 'relative';
+  el.appendChild(tip);
+});
+
 /* ==================== ANIMAÇÃO DOS NÚMEROS (STATS) ==================== */
 function animateNumber(el) {
   const target = parseFloat(el.dataset.target);

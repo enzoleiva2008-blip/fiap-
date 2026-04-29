@@ -154,7 +154,7 @@ projeto-soulup/
 
 ## 📞 Contato
 
-- **E-mail:** souluptransit@fiap.com.br
+- **E-mail:** pointway@fiap.com.br
 - **Instituição:** FIAP — São Paulo, SP
 - **Disciplina:** Front-End Design Engineering
 - **Semestre:** 1º Sprint — 2026

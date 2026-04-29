@@ -399,6 +399,12 @@ p:last-child { margin-bottom: 0; }
 .scroll-top.visible { opacity: 1; visibility: visible; }
 .scroll-top:hover { background-color: #047857; transform: translateY(-3px); }
 
+/* ==================== SELEÇÃO DE TEXTO ==================== */
+::selection {
+  background-color: var(--primary-bg);
+  color: var(--primary);
+}
+
 /* ==================== ANIMAÇÃO DE ENTRADA ==================== */
 .fade-in {
   opacity: 0;

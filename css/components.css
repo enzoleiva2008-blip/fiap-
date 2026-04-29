@@ -26,15 +26,16 @@
 }
 
 .nav-logo {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--white);
-  transition: var(--transition);
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
+  transition: var(--transition);
 }
-.nav-logo span { color: var(--primary-light); }
-.navbar.scrolled .nav-logo { color: var(--dark); }
+.nav-logo img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
 
 .nav-links {
   display: flex;

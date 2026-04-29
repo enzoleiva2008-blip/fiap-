@@ -124,12 +124,13 @@ projeto-soulup/
 
 <!-- ATENÇÃO: substitua pelos dados reais de cada integrante -->
 
-| Nome | RM | Turma | GitHub | LinkedIn |
-|---|---|---|---|---|
-| Nome Completo 1 | RM000000 | 0000 | [github.com/user1](https://github.com/) | [linkedin.com/in/user1](https://linkedin.com/in/) |
-| Nome Completo 2 | RM000000 | 0000 | [github.com/user2](https://github.com/) | [linkedin.com/in/user2](https://linkedin.com/in/) |
-| Nome Completo 3 | RM000000 | 0000 | [github.com/user3](https://github.com/) | [linkedin.com/in/user3](https://linkedin.com/in/) |
-| Nome Completo 4 | RM000000 | 0000 | [github.com/user4](https://github.com/) | [linkedin.com/in/user4](https://linkedin.com/in/) |
+| Nome | RM | Turma | GitHub |
+|---|---|---|---|
+| Enzo Leiva Varrichio | RM568877 | 1TDSPO | [github.com/enzoleiva2008-blip](https://github.com/enzoleiva2008-blip) |
+| Pietro Ibra | RM573262 | 1TDSPO | [github.com/PietroIbra](https://github.com/PietroIbra) |
+| Kauã Augusto Fiuza | RM572369 | 1TDSPO | [github.com/KauaznX](https://github.com/KauaznX) |
+| Bernardo Andrade | RM571170 | 1TDSPO | [github.com/bernardopqr-cpu](https://github.com/bernardopqr-cpu) |
+| Matheus Segura Anacleto de Souza | RM570878 | 1TDSPO | [github.com/MatheuSegura](https://github.com/MatheuSegura) |
 
 ---
 

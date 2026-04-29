@@ -1,4 +1,4 @@
-# SoulUp Transit 🚌🌱
+# Pointway 🚌🌱
 
 > Transforme seus pontos em mobilidade sustentável — Desafio 2 | FIAP Front-End Design Engineering 2026
 
@@ -8,9 +8,9 @@
 
 ## 📋 Descrição do Projeto
 
-O **SoulUp Transit** é uma solução desenvolvida para o **Desafio 2** do Challenge FIAP 2026, em parceria com a empresa **Prospera/SoulUp**.
+O **Pointway** é uma solução desenvolvida para o **Desafio 2** do Challenge FIAP 2026, em parceria com a empresa **Prospera/Pointway**.
 
-A proposta resolve o problema: *Como permitir que usuários utilizem seus pontos SoulUp para financiar o uso de transporte público?*
+A proposta resolve o problema: *Como permitir que usuários utilizem seus pontos Pointway para financiar o uso de transporte público?*
 
 A solução apresenta:
 - **Simulador interativo** de conversão de pontos em viagens
@@ -25,7 +25,7 @@ A solução apresenta:
 
 **Desafio 2 — Utilização de Pontos para Transporte Público**
 
-A SoulUp busca conectar o ambiente digital com benefícios reais no mundo físico. O transporte público é um dos principais meios de redução de emissão de carbono, tornando-se uma oportunidade de impacto sustentável.
+A Pointway busca conectar o ambiente digital com benefícios reais no mundo físico. O transporte público é um dos principais meios de redução de emissão de carbono, tornando-se uma oportunidade de impacto sustentável.
 
 **Questões respondidas pelo projeto:**
 - Como converter pontos em créditos de transporte?
@@ -42,7 +42,7 @@ projeto-soulup/
 │
 ├── index.html          # Página inicial — apresentação do projeto
 ├── sobre.html          # Sobre o projeto, contexto e roadmap
-├── solucao.html        # A plataforma SoulUp e sistema de pontos
+├── solucao.html        # A plataforma Pointway e sistema de pontos
 ├── transporte.html     # Desafio 2 — simulador e modelos de integração
 ├── faq.html            # Perguntas frequentes com busca e accordion
 ├── contato.html        # Formulário de contato com validação
@@ -163,7 +163,7 @@ projeto-soulup/
 
 ## 📜 Licença
 
-Projeto acadêmico desenvolvido para fins educacionais como parte do Challenge FIAP 2026 em parceria com a Prospera/SoulUp. Todos os direitos reservados à equipe desenvolvedora.
+Projeto acadêmico desenvolvido para fins educacionais como parte do Challenge FIAP 2026 em parceria com a Prospera/Pointway. Todos os direitos reservados à equipe desenvolvedora.
 
 ---
 

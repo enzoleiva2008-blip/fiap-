@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64" role="img" aria-label="Pointway logo">
+  <!-- Map pin (the "Point") -->
+  <path d="M26,58 C9,42 2,32 2,22 C2,10 13,1 26,1 C39,1 50,10 50,22 C50,32 43,42 26,58 Z" fill="#059669"/>
+  <!-- Pin inner white ring -->
+  <circle cx="26" cy="22" r="10" fill="white"/>
+  <!-- Pin inner dot -->
+  <circle cx="26" cy="22" r="4" fill="#059669"/>
+  <!-- Dotted trail (the "Way") -->
+  <circle cx="57" cy="32" r="2.2" fill="#10B981" opacity="0.9"/>
+  <circle cx="65" cy="32" r="2.2" fill="#10B981" opacity="0.6"/>
+  <circle cx="73" cy="32" r="2.2" fill="#10B981" opacity="0.35"/>
+  <!-- Logotype: "Point" dark + "way" green -->
+  <text x="83" y="43" font-family="'Poppins', 'Arial Black', Arial, sans-serif" font-weight="800" font-size="30" letter-spacing="-0.5">
+    <tspan fill="#0F172A">Point</tspan><tspan fill="#059669">way</tspan>
+  </text>
+</svg>

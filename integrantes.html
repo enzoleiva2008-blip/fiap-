@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Equipe SoulUp Transit — Conheça os integrantes do grupo responsável pelo projeto FIAP 2026." />
+  <title>Equipe — SoulUp Transit</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    /*
+      ============================================================
+      ATENÇÃO — PREENCHA OS DADOS REAIS DO SEU GRUPO AQUI
+      Substitua os placeholders por nome, RM, turma, GitHub e
+      LinkedIn de cada integrante. Adicione ou remova cards
+      conforme o número de pessoas no grupo.
+      ============================================================
+    */
+
+    .team-section-intro {
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
+
+    .turma-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-bg);
+      color: var(--primary);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Foto placeholder com iniciais */
+    .team-initials {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      border-radius: 50%;
+    }
+
+    /* Cores alternadas para os avatares */
+    .avatar-blue .team-initials {
+      background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+    }
+    .avatar-amber .team-initials {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    }
+    .avatar-teal .team-initials {
+      background: linear-gradient(135deg, #0d9488, #14b8a6);
+    }
+
+    .team-role {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-bottom: 0.875rem;
+      font-style: italic;
+    }
+
+    .about-project-card {
+      background: linear-gradient(135deg, var(--secondary), #0a1f40);
+      color: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .about-project-card h3 { color: var(--white); margin-bottom: 1rem; }
+    .about-project-card p { color: rgba(255,255,255,0.8); line-height: 1.8; }
+
+    .project-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .meta-item { text-align: center; }
+    .meta-val {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-light);
+    }
+    .meta-lbl { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">Soul<span>Up</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+          <li><a href="solucao.html" class="nav-link">Plataforma</a></li>
+          <li><a href="transporte.html" class="nav-link">Transporte</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contato.html" class="nav-link">Contato</a></li>
+          <li><a href="integrantes.html" class="nav-link">Equipe</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== HERO DA PÁGINA ==================== -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+          <a href="index.html">Início</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>Equipe</span>
+        </nav>
+        <h1>Nossa Equipe</h1>
+        <p>Conheça os integrantes responsáveis pelo desenvolvimento do SoulUp Transit para o Desafio 2 da FIAP.</p>
+      </div>
+    </section>
+
+    <!-- ==================== INTEGRANTES ==================== -->
+    <section class="section">
+      <div class="container">
+
+        <div class="team-section-intro fade-in">
+          <!-- ATENÇÃO: substitua pelo nome real da turma -->
+          <div class="turma-badge">🎓 Turma: SUBSTITUA AQUI</div>
+          <p style="color: var(--gray); line-height: 1.75;">
+            Grupo desenvolvedor do projeto <strong>SoulUp Transit</strong> para o Challenge FIAP 2026,
+            Desafio 2 — Utilização de Pontos para Transporte Público, em parceria com a empresa Prospera/SoulUp.
+          </p>
+        </div>
+
+        <!--
+          ============================================================
+          ATENÇÃO: SUBSTITUA OS DADOS ABAIXO PELOS REAIS DO GRUPO
+          - Nome completo
+          - RM (número de matrícula)
+          - Turma
+          - GitHub: link do perfil
+          - LinkedIn: link do perfil
+          - Foto: coloque a imagem em assets/images/ e altere o src,
+            ou deixe as iniciais no avatar colorido.
+          Adicione ou remova <article class="team-card"> conforme
+          o número de integrantes do grupo.
+          ============================================================
+        -->
+        <div class="team-grid">
+
+          <!-- Integrante 1 -->
+          <article class="team-card fade-in">
+            <div class="team-photo-wrapper">
+              <!--
+                OPÇÃO A — Com foto:
+                <img src="assets/images/foto-integrante1.jpg" alt="Foto de Nome Completo" />
+
+                OPÇÃO B — Sem foto (iniciais coloridas), deixe como está abaixo:
+              -->
+              <div class="team-initials">AB</div>
+            </div>
+            <!-- SUBSTITUA: Nome Completo do Integrante 1 -->
+            <h3 class="team-name">Nome Completo 1</h3>
+            <!-- SUBSTITUA: RM real -->
+            <p class="team-rm">RM: 000000</p>
+            <!-- SUBSTITUA: turma real -->
+            <p class="team-turma">Turma: 0000</p>
+            <p class="team-role">Front-End Developer</p>
+            <div class="team-links">
+              <!-- SUBSTITUA: URL real do GitHub -->
+              <a href="https://github.com/" target="_blank" rel="noopener" class="team-link github" aria-label="GitHub de Nome 1">
+                🐙 GitHub
+              </a>
+              <!-- SUBSTITUA: URL real do LinkedIn -->
+              <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="team-link" aria-label="LinkedIn de Nome 1">
+                💼 LinkedIn
+              </a>
+            </div>
+          </article>
+
+          <!-- Integrante 2 -->
+          <article class="team-card fade-in" style="transition-delay: 0.1s;">
+            <div class="team-photo-wrapper avatar-blue">
+              <div class="team-initials">CD</div>
+            </div>
+            <h3 class="team-name">Nome Completo 2</h3>
+            <p class="team-rm">RM: 000000</p>
+            <p class="team-turma">Turma: 0000</p>
+            <p class="team-role">UI/UX Designer</p>
+            <div class="team-links">
+              <a href="https://github.com/" target="_blank" rel="noopener" class="team-link github" aria-label="GitHub de Nome 2">
+                🐙 GitHub
+              </a>
+              <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="team-link" aria-label="LinkedIn de Nome 2">
+                💼 LinkedIn
+              </a>
+            </div>
+          </article>
+
+          <!-- Integrante 3 -->
+          <article class="team-card fade-in" style="transition-delay: 0.2s;">
+            <div class="team-photo-wrapper avatar-amber">
+              <div class="team-initials">EF</div>
+            </div>
+            <h3 class="team-name">Nome Completo 3</h3>
+            <p class="team-rm">RM: 000000</p>
+            <p class="team-turma">Turma: 0000</p>
+            <p class="team-role">Front-End Developer</p>
+            <div class="team-links">
+              <a href="https://github.com/" target="_blank" rel="noopener" class="team-link github" aria-label="GitHub de Nome 3">
+                🐙 GitHub
+              </a>
+              <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="team-link" aria-label="LinkedIn de Nome 3">
+                💼 LinkedIn
+              </a>
+            </div>
+          </article>
+
+          <!-- Integrante 4 -->
+          <article class="team-card fade-in" style="transition-delay: 0.3s;">
+            <div class="team-photo-wrapper avatar-teal">
+              <div class="team-initials">GH</div>
+            </div>
+            <h3 class="team-name">Nome Completo 4</h3>
+            <p class="team-rm">RM: 000000</p>
+            <p class="team-turma">Turma: 0000</p>
+            <p class="team-role">Product Designer</p>
+            <div class="team-links">
+              <a href="https://github.com/" target="_blank" rel="noopener" class="team-link github" aria-label="GitHub de Nome 4">
+                🐙 GitHub
+              </a>
+              <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="team-link" aria-label="LinkedIn de Nome 4">
+                💼 LinkedIn
+              </a>
+            </div>
+          </article>
+
+          <!--
+            SE O GRUPO TIVER 5 INTEGRANTES, descomente o bloco abaixo:
+
+          <article class="team-card fade-in" style="transition-delay: 0.4s;">
+            <div class="team-photo-wrapper">
+              <div class="team-initials">IJ</div>
+            </div>
+            <h3 class="team-name">Nome Completo 5</h3>
+            <p class="team-rm">RM: 000000</p>
+            <p class="team-turma">Turma: 0000</p>
+            <p class="team-role">QA & Tester</p>
+            <div class="team-links">
+              <a href="https://github.com/" target="_blank" rel="noopener" class="team-link github">🐙 GitHub</a>
+              <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="team-link">💼 LinkedIn</a>
+            </div>
+          </article>
+          -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SOBRE O PROJETO ==================== -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="about-project-card fade-in">
+          <span class="badge badge-white" style="margin-bottom: 1.25rem; display: inline-flex;">🏆 FIAP Challenge 2026</span>
+          <h3>Sobre o Projeto SoulUp Transit</h3>
+          <p>
+            Desenvolvido como entrega do <strong style="color: var(--primary-light);">1º Sprint</strong> da disciplina de
+            Front-End Design Engineering da FIAP, em parceria com a empresa <strong style="color: var(--primary-light);">Prospera / SoulUp</strong>.
+            O grupo escolheu o <strong style="color: var(--primary-light);">Desafio 2</strong> — Utilização de Pontos para Transporte Público —
+            propondo uma solução completa para conversão de pontos em créditos de mobilidade urbana sustentável.
+          </p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <div class="meta-val">7</div>
+              <div class="meta-lbl">páginas HTML</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-val">3</div>
+              <div class="meta-lbl">arquivos CSS</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-val">4</div>
+              <div class="meta-lbl">arquivos JS</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-val">100%</div>
+              <div class="meta-lbl">responsivo</div>
+            </div>
+          </div>
+          <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="sobre.html" class="btn btn-outline-white">Ver sobre o projeto</a>
+            <!-- ATENÇÃO: substitua pelo link real do repositório no GitHub -->
+            <a href="https://github.com/enzoleiva2008-blip/fiap-" target="_blank" rel="noopener" class="btn btn-primary">🐙 Ver repositório</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">SoulUp Transit</span>
+          <p>Transformando interações digitais em mobilidade sustentável. Projeto desenvolvido para o Desafio 2 — FIAP Front-End Design Engineering 2026.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre o Projeto</a></li>
+            <li><a href="solucao.html">A Plataforma</a></li>
+            <li><a href="transporte.html">Transporte</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Recursos</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="integrantes.html">Nossa Equipe</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Challenge</h4>
+          <ul class="footer-links">
+            <li><a href="sobre.html#desafio">Desafio 2 — SoulUp</a></li>
+            <li><a href="sobre.html#prospera">Sobre a Prospera</a></li>
+            <li><a href="sobre.html#roadmap">Roadmap</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <p>&copy; 2026 SoulUp Transit. Desenvolvido para FIAP — Front-End Design Engineering.</p>
+        <p>Desafio 2 — Transporte Público Sustentável 🌱</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

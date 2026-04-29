@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Perguntas Frequentes sobre o SoulUp Transit — Tudo sobre conversão de pontos, transporte público e segurança." />
+  <title>FAQ — SoulUp Transit</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    .faq-search-wrapper {
+      max-width: 540px;
+      margin: 0 auto 3rem;
+      position: relative;
+    }
+    .faq-search {
+      width: 100%;
+      padding: 0.9rem 1.25rem 0.9rem 3rem;
+      border: 2px solid var(--gray-light);
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      background: var(--white);
+    }
+    .faq-search:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(5,150,105,0.1);
+    }
+    .faq-search-icon {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      color: var(--gray);
+      pointer-events: none;
+    }
+    .faq-category-label {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      margin: 2.5rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq-category-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: var(--gray-light);
+    }
+    #faqNoResults {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+      color: var(--gray);
+    }
+    #faqNoResults .no-result-icon { font-size: 3rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">Soul<span>Up</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+          <li><a href="solucao.html" class="nav-link">Plataforma</a></li>
+          <li><a href="transporte.html" class="nav-link">Transporte</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contato.html" class="nav-link">Contato</a></li>
+          <li><a href="integrantes.html" class="nav-link">Equipe</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== HERO DA PÁGINA ==================== -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+          <a href="index.html">Início</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>FAQ</span>
+        </nav>
+        <h1>Perguntas Frequentes</h1>
+        <p>Encontre respostas rápidas sobre como funciona a conversão de pontos, integração com o transporte e muito mais.</p>
+      </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Busca -->
+        <div class="faq-search-wrapper fade-in">
+          <span class="faq-search-icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="faqSearch"
+            class="faq-search"
+            placeholder="Buscar perguntas..."
+            aria-label="Buscar perguntas frequentes"
+          />
+        </div>
+
+        <!-- Sem resultados -->
+        <div id="faqNoResults" role="status">
+          <div class="no-result-icon">🤔</div>
+          <p>Nenhuma pergunta encontrada para "<strong id="searchTerm"></strong>".</p>
+          <a href="contato.html" class="btn btn-primary" style="margin-top: 1rem;">Enviar minha dúvida</a>
+        </div>
+
+        <!-- Categoria: Pontos e Conversão -->
+        <p class="faq-category-label">💰 Pontos e Conversão</p>
+        <div class="faq-list" id="faqList">
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Como converter meus pontos SoulUp em créditos de transporte?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>Para converter seus pontos, acesse o aplicativo SoulUp, vá até a seção "Recompensas" e selecione "Transporte Público". Escolha o tipo de transporte (ônibus, metrô, BRT), informe a quantidade de pontos que deseja converter e confirme com sua biometria. O voucher ou crédito é gerado instantaneamente.</p>
+                <p><strong>Taxas atuais:</strong> Ônibus = 150 pts/viagem | Metrô/Trem = 250 pts/viagem | BRT = 180 pts/viagem.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Qual é o saldo mínimo necessário para fazer um resgate?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>O saldo mínimo para qualquer resgate de transporte é de <strong>150 pontos</strong>, equivalente a uma viagem de ônibus. Não há limite máximo por transação, mas resgates acima de 5.000 pontos por dia exigem verificação adicional por segurança.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Os pontos expiram? Por quanto tempo eles ficam disponíveis?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>Sim, os pontos têm validade de <strong>12 meses</strong> a partir da data de acúmulo. Qualquer resgate ou nova adição de pontos à conta renova o prazo do saldo existente por mais 12 meses.</p>
+                <p>Você recebe um aviso no app 30 dias antes de qualquer lote de pontos expirar.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Posso transferir meus pontos para outra pessoa?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>Não. Os pontos SoulUp são <strong>pessoais e intransferíveis</strong>, vinculados ao CPF do usuário cadastrado. Essa restrição existe para garantir a integridade do programa e evitar fraudes e mercado paralelo de pontos.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Categoria: Transporte e Uso -->
+        <p class="faq-category-label">🚌 Transporte e Uso</p>
+        <div class="faq-list">
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Quais sistemas de transporte são compatíveis com o SoulUp Transit?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>Atualmente, a plataforma está integrada com:</p>
+                <ul style="padding-left: 1.5rem; list-style: disc; line-height: 2.2;">
+                  <li><strong>Ônibus municipais</strong> via SPTrans (São Paulo)</li>
+                  <li><strong>Metrô e Trem</strong> via ViaMobilidade (Linhas 5, 8, 9 e 17)</li>
+                  <li><strong>CPTM</strong> — Linhas 7, 10, 11, 12 e 13</li>
+                </ul>
+                <p>Estamos em negociação com outras capitais brasileiras para expansão em 2026.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              O voucher gerado pode ser usado por outra pessoa?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>Não. Cada voucher é gerado com um <strong>token único vinculado ao CPF</strong> do usuário e ao dispositivo cadastrado. Na validação, o sistema verifica a consistência dos dados — qualquer tentativa de uso por terceiros resulta em bloqueio automático.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Por quanto tempo o QR Code do voucher é válido?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>O QR Code tem validade de <strong>24 horas</strong> a partir do momento da geração. Após o uso ou expiração, o token é invalidado automaticamente no servidor. Um novo voucher pode ser gerado a qualquer momento, desde que você tenha saldo suficiente.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              O que acontece se a catraca não ler o QR Code?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>Se houver problema de leitura, você pode apresentar o código alfanumérico do voucher (ex: SUP-7X4K-2026) ao agente de transporte, que pode validar manualmente pelo sistema da operadora. Os pontos só são debitados após a confirmação do uso — se o voucher não for usado, eles permanecem na sua conta.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Categoria: Segurança e Conta -->
+        <p class="faq-category-label">🔐 Segurança e Conta</p>
+        <div class="faq-list">
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Como o sistema previne fraudes e uso indevido dos pontos?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>O SoulUp Transit possui múltiplas camadas de segurança:</p>
+                <ul style="padding-left: 1.5rem; list-style: disc; line-height: 2.2;">
+                  <li>Autenticação biométrica (Face ID / impressão digital) para gerar vouchers</li>
+                  <li>Token único por transação, vinculado ao CPF e dispositivo</li>
+                  <li>Expiração automática em 24h com bloqueio após 3 tentativas falhas</li>
+                  <li>Modelo de IA que monitora padrões de uso atípicos em tempo real</li>
+                  <li>Auditoria completa de todas as transações armazenada por 5 anos</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false">
+              Perdi meu celular. Meus pontos estão seguros?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <p>Sim! Seus pontos ficam armazenados na nuvem, vinculados ao seu CPF. Em caso de perda ou troca de dispositivo, acesse o portal web da SoulUp com seu login e senha, vá em "Minha conta" e selecione "Desconectar todos os dispositivos". Isso invalida qualquer sessão ativa e protege sua conta. Depois, faça login no novo dispositivo.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Contato -->
+        <div style="text-align: center; margin-top: 3.5rem;" class="fade-in">
+          <p style="color: var(--gray); margin-bottom: 1.25rem;">Não encontrou o que procurava?</p>
+          <a href="contato.html" class="btn btn-primary btn-lg">Enviar minha dúvida</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">SoulUp Transit</span>
+          <p>Transformando interações digitais em mobilidade sustentável. Projeto desenvolvido para o Desafio 2 — FIAP Front-End Design Engineering 2026.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre o Projeto</a></li>
+            <li><a href="solucao.html">A Plataforma</a></li>
+            <li><a href="transporte.html">Transporte</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Recursos</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="integrantes.html">Nossa Equipe</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Challenge</h4>
+          <ul class="footer-links">
+            <li><a href="sobre.html#desafio">Desafio 2 — SoulUp</a></li>
+            <li><a href="sobre.html#prospera">Sobre a Prospera</a></li>
+            <li><a href="sobre.html#roadmap">Roadmap</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <p>&copy; 2026 SoulUp Transit. Desenvolvido para FIAP — Front-End Design Engineering.</p>
+        <p>Desafio 2 — Transporte Público Sustentável 🌱</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">↑</button>
+  <script src="js/main.js"></script>
+  <script src="js/faq.js"></script>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pontos para Transporte Público — Simule a conversão, veja modelos de integração e meça seu impacto ambiental." />
+  <title>Transporte — SoulUp Transit</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    /* Estilos específicos desta página */
+    .tabs-nav {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--gray-light);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 0.75rem 1.25rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--gray);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      transition: var(--transition);
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+    .tab-btn:hover { color: var(--primary); }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      background-color: var(--primary-bg);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .voucher-mockup {
+      background: var(--white);
+      border: 2px dashed var(--gray-light);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      text-align: center;
+      max-width: 360px;
+      margin: 2rem auto 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .voucher-mockup::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light), var(--accent-light));
+    }
+    .voucher-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .voucher-logo {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+    .voucher-type {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: var(--light);
+      padding: 0.2rem 0.625rem;
+      border-radius: var(--radius-full);
+    }
+    .qr-placeholder {
+      width: 130px;
+      height: 130px;
+      background: var(--dark);
+      border-radius: var(--radius);
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .voucher-code {
+      font-family: monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: 0.15em;
+      background: var(--light);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      margin-bottom: 0.875rem;
+    }
+    .voucher-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--gray);
+      border-top: 1px dashed var(--gray-light);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+    .voucher-info strong { color: var(--dark); display: block; font-size: 0.88rem; }
+
+    .impact-calc {
+      background: var(--light);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .impact-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .impact-input-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--gray-dark);
+      margin-bottom: 0.5rem;
+    }
+    .impact-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--gray-light);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .impact-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(5,150,105,0.1);
+    }
+    .impact-results {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .impact-result-item {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .impact-result-item .impact-val {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .impact-result-item .impact-lbl {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .integration-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      border: 1px solid var(--gray-light);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      transition: var(--transition);
+    }
+    .integration-card:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+    .integration-icon {
+      width: 52px; height: 52px;
+      background: var(--primary-bg);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .integration-card h4 { margin-bottom: 0.375rem; }
+    .integration-card p { color: var(--gray); font-size: 0.88rem; line-height: 1.65; margin: 0; }
+
+    @media (max-width: 768px) {
+      .impact-inputs { grid-template-columns: 1fr; }
+      .impact-results { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .impact-results { grid-template-columns: 1fr 1fr; }
+      .voucher-mockup { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">Soul<span>Up</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+          <li><a href="solucao.html" class="nav-link">Plataforma</a></li>
+          <li><a href="transporte.html" class="nav-link">Transporte</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contato.html" class="nav-link">Contato</a></li>
+          <li><a href="integrantes.html" class="nav-link">Equipe</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== HERO DA PÁGINA ==================== -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+          <a href="index.html">Início</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>Transporte</span>
+        </nav>
+        <span class="badge badge-white" style="margin-bottom: 1rem; display: inline-flex;">🚌 Desafio 2 — SoulUp</span>
+        <h1>Pontos para Transporte Público</h1>
+        <p>Converta seus pontos SoulUp em viagens de ônibus, metrô e trem. Simule aqui e descubra seu impacto ambiental.</p>
+      </div>
+    </section>
+
+    <!-- ==================== SIMULADOR ==================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="badge badge-primary">Simulador interativo</span>
+          <h2>Quantas viagens seus pontos rendem?</h2>
+          <div class="divider"></div>
+          <p class="section-desc">Insira seu saldo de pontos e escolha o tipo de transporte para ver o resultado.</p>
+        </div>
+
+        <div class="simulator-card fade-in">
+          <h3>Simulador de Conversão</h3>
+          <p class="subtitle">Calcule o potencial dos seus pontos SoulUp em tempo real</p>
+
+          <div class="simulator-input-group">
+            <label for="pointsInput">Quantos pontos você tem?</label>
+            <input
+              type="number"
+              id="pointsInput"
+              class="simulator-input"
+              placeholder="Ex: 4500"
+              min="0"
+              max="9999999"
+              aria-label="Quantidade de pontos"
+            />
+          </div>
+
+          <label style="font-weight: 600; font-size: 0.9rem; color: var(--gray-dark); display: block; margin-bottom: 0.75rem;">Tipo de transporte</label>
+          <div class="transport-options" role="group" aria-label="Tipo de transporte">
+            <div class="transport-option selected" data-transport="onibus" role="button" tabindex="0" aria-pressed="true">
+              <div class="option-icon">🚌</div>
+              <div class="option-name">Ônibus</div>
+              <div class="option-rate">150 pts/viagem</div>
+            </div>
+            <div class="transport-option" data-transport="metro" role="button" tabindex="0" aria-pressed="false">
+              <div class="option-icon">🚇</div>
+              <div class="option-name">Metrô / Trem</div>
+              <div class="option-rate">250 pts/viagem</div>
+            </div>
+            <div class="transport-option" data-transport="brt" role="button" tabindex="0" aria-pressed="false">
+              <div class="option-icon">🚊</div>
+              <div class="option-name">BRT</div>
+              <div class="option-rate">180 pts/viagem</div>
+            </div>
+          </div>
+
+          <button id="calcBtn" class="btn btn-primary" style="width: 100%; margin-bottom: 1.5rem;">
+            Calcular viagens
+          </button>
+
+          <!-- Resultado -->
+          <div class="simulator-result" id="simulatorResult" role="region" aria-live="polite">
+            <p style="font-size: 0.85rem; color: var(--gray); margin-bottom: 0.375rem;">Você pode realizar</p>
+            <div class="result-number" id="resultTrips">0</div>
+            <div class="result-label">viagens de <strong id="resultTransportName">Ônibus</strong></div>
+            <div style="margin-top: 0.875rem; font-size: 0.83rem; color: var(--gray-dark);">
+              Usando <strong id="resultPointsUsed">0</strong> pontos &nbsp;|&nbsp; Restam <strong id="resultRemaining">0</strong> pontos
+            </div>
+            <div class="result-equivalence">
+              <div class="result-equiv-item">
+                <div class="equiv-value" id="resultCO2">0</div>
+                <div class="equiv-label">kg CO₂ evitados</div>
+              </div>
+              <div class="result-equiv-item">
+                <div class="equiv-value" id="resultKm">0</div>
+                <div class="equiv-label">km percorridos</div>
+              </div>
+              <div class="result-equiv-item">
+                <div class="equiv-value">R$ <span id="resultValue">0</span></div>
+                <div class="equiv-label">em economia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voucher mockup -->
+        <div class="voucher-mockup fade-in">
+          <div class="voucher-header">
+            <span class="voucher-logo">SoulUp</span>
+            <span class="voucher-type">Ônibus SPTrans</span>
+          </div>
+          <div class="qr-placeholder" aria-label="QR Code simulado">▦</div>
+          <div class="voucher-code">SUP-7X4K-2026</div>
+          <p style="font-size: 0.8rem; color: var(--gray); margin-bottom: 0.75rem;">1 crédito de transporte · válido por 24h</p>
+          <div class="voucher-info">
+            <div><strong>Usuário</strong>João S.</div>
+            <div><strong>Pontos usados</strong>150 pts</div>
+            <div><strong>Expira em</strong>29/04/2026</div>
+          </div>
+        </div>
+        <p style="text-align: center; color: var(--gray); font-size: 0.82rem; margin-top: 0.75rem;">
+          ↑ Modelo de voucher digital gerado no app. O QR Code é único e vinculado ao CPF do usuário.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== MODELOS DE INTEGRAÇÃO ==================== -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="badge badge-secondary">Integração técnica</span>
+          <h2>Como a solução se integra ao sistema de transporte</h2>
+          <div class="divider"></div>
+          <p class="section-desc">Dois modelos de integração para diferentes contextos e operadoras.</p>
+        </div>
+
+        <div class="fade-in">
+          <div class="tabs-nav" role="tablist">
+            <button class="tab-btn active" data-tab="voucher" role="tab">🎫 Voucher Digital</button>
+            <button class="tab-btn" data-tab="api" role="tab">🔗 API de Bilhetagem</button>
+          </div>
+
+          <div class="tab-content active" id="tab-voucher">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+              <div>
+                <h3 style="margin-bottom: 1rem;">Modelo Voucher Digital</h3>
+                <p style="color: var(--gray-dark); line-height: 1.8; margin-bottom: 1.5rem;">O modelo mais simples: o usuário gera um QR Code no app SoulUp que é lido pelas catracas equipadas ou validado pelos agentes de transporte.</p>
+                <div style="display: flex; flex-direction: column; gap: 0.875rem;">
+                  <div class="integration-card">
+                    <div class="integration-icon">📱</div>
+                    <div>
+                      <h4>Geração no app</h4>
+                      <p>Usuário seleciona pontos, escolhe o modal e gera o QR Code com validade de 24h.</p>
+                    </div>
+                  </div>
+                  <div class="integration-card">
+                    <div class="integration-icon">🔍</div>
+                    <div>
+                      <h4>Validação na catraca</h4>
+                      <p>Leitor da catraca comunica com a API SoulUp para validar e consumir o voucher.</p>
+                    </div>
+                  </div>
+                  <div class="integration-card">
+                    <div class="integration-icon">✅</div>
+                    <div>
+                      <h4>Confirmação instantânea</h4>
+                      <p>O sistema registra a viagem, debita os pontos e atualiza o histórico em tempo real.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="highlight-box">
+                  <h4 style="color: var(--white); margin-bottom: 1rem;">✅ Vantagens deste modelo</h4>
+                  <ul style="color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 2.2; padding-left: 1.25rem; list-style: disc;">
+                    <li>Implementação mais rápida</li>
+                    <li>Não requer alteração nos sistemas legados</li>
+                    <li>Funciona offline (QR salvo em cache)</li>
+                    <li>Rastreabilidade completa da viagem</li>
+                    <li>Compatível com qualquer operadora</li>
+                  </ul>
+                </div>
+                <div class="info-box" style="margin-top: 1rem;">
+                  <p>📊 <strong>Anti-fraude:</strong> Token único por CPF, expiração automática em 24h e limite de 3 tentativas de uso por QR Code.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="tab-api">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+              <div>
+                <h3 style="margin-bottom: 1rem;">Integração via API</h3>
+                <p style="color: var(--gray-dark); line-height: 1.8; margin-bottom: 1.5rem;">Para operadoras com API disponível (SPTrans, CPTM), a integração é direta: os créditos são adicionados ao cartão de transporte existente do usuário.</p>
+                <div style="display: flex; flex-direction: column; gap: 0.875rem;">
+                  <div class="integration-card">
+                    <div class="integration-icon">🔗</div>
+                    <div>
+                      <h4>Autenticação OAuth 2.0</h4>
+                      <p>Usuário autoriza a SoulUp a acessar seu cartão de transporte cadastrado na operadora.</p>
+                    </div>
+                  </div>
+                  <div class="integration-card">
+                    <div class="integration-icon">💳</div>
+                    <div>
+                      <h4>Recarga direta no cartão</h4>
+                      <p>A API da SoulUp debita os pontos e credita viagens diretamente no cartão (ex: Bilhete Único).</p>
+                    </div>
+                  </div>
+                  <div class="integration-card">
+                    <div class="integration-icon">📊</div>
+                    <div>
+                      <h4>Relatório consolidado</h4>
+                      <p>Histórico unificado de pontos usados e viagens realizadas, com dados ambientais calculados.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="card">
+                  <h4 style="margin-bottom: 1rem;">🔧 Dados técnicos</h4>
+                  <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid var(--gray-light);">
+                      <td style="padding: 0.625rem 0; color: var(--gray); font-weight: 500;">Protocolo</td>
+                      <td style="padding: 0.625rem 0; font-weight: 600; text-align: right;">REST / HTTPS</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--gray-light);">
+                      <td style="padding: 0.625rem 0; color: var(--gray); font-weight: 500;">Autenticação</td>
+                      <td style="padding: 0.625rem 0; font-weight: 600; text-align: right;">OAuth 2.0 + JWT</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--gray-light);">
+                      <td style="padding: 0.625rem 0; color: var(--gray); font-weight: 500;">Formato</td>
+                      <td style="padding: 0.625rem 0; font-weight: 600; text-align: right;">JSON</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--gray-light);">
+                      <td style="padding: 0.625rem 0; color: var(--gray); font-weight: 500;">Latência</td>
+                      <td style="padding: 0.625rem 0; font-weight: 600; text-align: right;">&lt; 500ms</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 0.625rem 0; color: var(--gray); font-weight: 500;">Disponibilidade</td>
+                      <td style="padding: 0.625rem 0; font-weight: 600; text-align: right;">99,9% SLA</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ANTI-FRAUDE ==================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="badge badge-accent">Segurança</span>
+          <h2>Sistema anti-fraude</h2>
+          <div class="divider"></div>
+          <p class="section-desc">Cada etapa do processo tem camadas de segurança para garantir a integridade das transações.</p>
+        </div>
+        <div class="fraud-steps fade-in">
+          <div class="fraud-step">
+            <div class="fraud-step-icon">🔐</div>
+            <h4>Autenticação biométrica</h4>
+            <p>Face ID ou impressão digital obrigatória para gerar qualquer voucher de transporte.</p>
+          </div>
+          <div class="fraud-step">
+            <div class="fraud-step-icon">🎫</div>
+            <h4>Token único</h4>
+            <p>QR Code gerado com hash único, vinculado ao CPF e ao dispositivo. Uso único e irrevogável.</p>
+          </div>
+          <div class="fraud-step">
+            <div class="fraud-step-icon">⏰</div>
+            <h4>Expiração automática</h4>
+            <p>Vouchers expiram em 24 horas. Tentativas de reuso são bloqueadas e registradas.</p>
+          </div>
+          <div class="fraud-step">
+            <div class="fraud-step-icon">🤖</div>
+            <h4>Detecção por IA</h4>
+            <p>Modelo de machine learning monitora padrões anômalos de uso e bloqueia contas suspeitas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== IMPACTO AMBIENTAL ==================== -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="badge badge-primary">Impacto ambiental</span>
+          <h2>Calculadora de impacto coletivo</h2>
+          <div class="divider"></div>
+          <p class="section-desc">Veja o impacto potencial se toda a base de usuários usar pontos no transporte.</p>
+        </div>
+
+        <div class="impact-calc fade-in">
+          <div class="impact-inputs">
+            <div class="impact-input-group">
+              <label for="impactUsers">Número de usuários ativos</label>
+              <input type="number" id="impactUsers" class="impact-input" value="10000" min="1" max="10000000" aria-label="Usuários ativos" />
+            </div>
+            <div class="impact-input-group">
+              <label for="impactTripsPerMonth">Viagens por usuário/mês</label>
+              <input type="number" id="impactTripsPerMonth" class="impact-input" value="8" min="1" max="100" aria-label="Viagens por mês" />
+            </div>
+          </div>
+          <div class="impact-results">
+            <div class="impact-result-item">
+              <div class="impact-val" id="impactTotalTrips">80.000</div>
+              <div class="impact-lbl">viagens por mês</div>
+            </div>
+            <div class="impact-result-item">
+              <div class="impact-val" id="impactTotalCO2">7.120</div>
+              <div class="impact-lbl">kg CO₂ evitados/mês</div>
+            </div>
+            <div class="impact-result-item">
+              <div class="impact-val" id="impactTotalKm">680.000</div>
+              <div class="impact-lbl">km percorridos</div>
+            </div>
+            <div class="impact-result-item">
+              <div class="impact-val" id="impactTrees">339</div>
+              <div class="impact-lbl">árvores equivalentes</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards de impacto -->
+        <div class="impact-grid" style="margin-top: 2rem;">
+          <div class="impact-card fade-in">
+            <div class="impact-icon icon-primary">🌿</div>
+            <div>
+              <h4>Redução de CO₂</h4>
+              <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.7; margin: 0.5rem 0 0;">Cada viagem de ônibus substitui em média 8,5 km de carro particular, evitando ~0,089 kg de CO₂ por deslocamento.</p>
+            </div>
+          </div>
+          <div class="impact-card fade-in" style="transition-delay: 0.1s;">
+            <div class="impact-icon icon-secondary">📊</div>
+            <div>
+              <h4>Relatório individual</h4>
+              <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.7; margin: 0.5rem 0 0;">Cada usuário recebe mensalmente um relatório com seu impacto ambiental pessoal, gamificando o engajamento sustentável.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Comece hoje a transformar seus pontos em viagens</h2>
+        <p>Ainda tem dúvidas? Confira nossa seção de perguntas frequentes ou entre em contato com o time.</p>
+        <div class="cta-actions">
+          <a href="faq.html" class="btn btn-primary btn-lg">Ver FAQ</a>
+          <a href="contato.html" class="btn btn-outline-white">Falar com a equipe</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">SoulUp Transit</span>
+          <p>Transformando interações digitais em mobilidade sustentável. Projeto desenvolvido para o Desafio 2 — FIAP Front-End Design Engineering 2026.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre o Projeto</a></li>
+            <li><a href="solucao.html">A Plataforma</a></li>
+            <li><a href="transporte.html">Transporte</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Recursos</h4>
+          <ul class="footer-links">
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="integrantes.html">Nossa Equipe</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Challenge</h4>
+          <ul class="footer-links">
+            <li><a href="sobre.html#desafio">Desafio 2 — SoulUp</a></li>
+            <li><a href="sobre.html#prospera">Sobre a Prospera</a></li>
+            <li><a href="sobre.html#roadmap">Roadmap</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <p>&copy; 2026 SoulUp Transit. Desenvolvido para FIAP — Front-End Design Engineering.</p>
+        <p>Desafio 2 — Transporte Público Sustentável 🌱</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">↑</button>
+  <script src="js/main.js"></script>
+  <script src="js/transporte.js"></script>
+</body>
+</html>

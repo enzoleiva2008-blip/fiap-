@@ -715,6 +715,7 @@ textarea.form-control { resize: vertical; min-height: 130px; }
 }
 .team-link:hover { border-color: var(--primary); color: var(--primary); background-color: var(--primary-bg); }
 .team-link.github:hover { border-color: var(--dark); color: var(--dark); background-color: var(--light); }
+.team-link.linkedin:hover { border-color: #0A66C2; color: #0A66C2; background-color: #EFF6FF; }
 
 /* ==================== PROCESSO ANTI-FRAUDE ==================== */
 .fraud-steps {

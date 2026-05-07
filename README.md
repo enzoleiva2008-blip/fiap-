@@ -126,11 +126,11 @@ projeto-soulup/
 
 | Nome | RM | Turma | GitHub |
 |---|---|---|---|
-| Enzo Leiva Varrichio | RM568877 | 1TSPX | [github.com/enzoleiva2008-blip](https://github.com/enzoleiva2008-blip) |
-| Pietro Ibra | RM573262 | 1TSPX | [github.com/PietroIbra](https://github.com/PietroIbra) |
-| Kauã Augusto Fiuza | RM572369 | 1TSPX | [github.com/KauaznX](https://github.com/KauaznX) |
-| Bernardo Andrade | RM571170 | 1TSPX | [github.com/bernardopqr-cpu](https://github.com/bernardopqr-cpu) |
-| Matheus Segura Anacleto de Souza | RM570878 | 1TSPX | [github.com/MatheuSegura](https://github.com/MatheuSegura) |
+| Enzo Leiva Varrichio | RM568877 | 1TDSPX | [github.com/enzoleiva2008-blip](https://github.com/enzoleiva2008-blip) |
+| Pietro Ibra | RM573262 | 1TDSPX | [github.com/PietroIbra](https://github.com/PietroIbra) |
+| Kauã Augusto Fiuza | RM572369 | 1TDSPX | [github.com/KauaznX](https://github.com/KauaznX) |
+| Bernardo Andrade | RM571170 | 1TDSPX | [github.com/bernardopqr-cpu](https://github.com/bernardopqr-cpu) |
+| Matheus Segura Anacleto de Souza | RM570878 | 1TDSPX | [github.com/MatheuSegura](https://github.com/MatheuSegura) |
 
 ---
 
